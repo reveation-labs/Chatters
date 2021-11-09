@@ -1,24 +1,27 @@
-<div class="product-item--price">
-    <span class="h1 medium--left">
-        {% if on_sale %}
-        <span class="old">
+<div class="product-thumbnail__price rel product-item--price">
+    <span class="price__is">
+            {% if on_sale %}
+                <span class="old">
+                    {% if settings.show_prices_with_taxes %}
+                    {% assign price = product.compare_at_price_with_tax %}
+                    {% include 'price' %}
+                    {% else %}
+                    {% assign price = product.compare_at_price %}
+                    {% include 'price' %}
+                    {% endif %}
+                </span>    
+            {% endif %}
+        <span class="money">
             {% if settings.show_prices_with_taxes %}
-            {% assign price = product.compare_at_price_with_tax %}
-            {% include 'price' %}
+                {% assign price = product.price_with_tax %}
+                {% include 'price' %}
             {% else %}
-            {% assign price = product.compare_at_price %}
-            {% include 'price' %}
+                {% assign price = product.price %}
+                {% include 'price' %}
             {% endif %}
         </span>
-        {% endif %}
-        {% if settings.show_prices_with_taxes %}
-            {% assign price = product.price_with_tax %}
-            {% include 'price' %}
-        {% else %}
-            {% assign price = product.price %}
-            {% include 'price' %}
-        {% endif %}
     </span>
+    {%comment%}
     {% if on_sale %}
     <span class="sale-tag medium--right{% if settings.product_reviews_enable %} has-reviews{% endif %}">
         {% if settings.show_prices_with_taxes %}
@@ -34,4 +37,5 @@
     {% if settings.product_reviews_enable %}
             <span class="shopify-product-reviews-badge" data-id="{{ product.id }}"></span>
     {% endif %}
+    {%endcomment%}
 </div>     

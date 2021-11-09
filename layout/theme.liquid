@@ -61,10 +61,79 @@
     {% include 'recently-added-list-item-dialog' %}
     {% include 'recently-added-actual-quote-request-item-dialog' %}
     {% if settings.store_selector_enable %}
-    {% include 'top-header-selector' %}
+    
     {% endif %}
-    <header class="site-header" role="banner">
-    <div class="wrapper">
+    <header class="header" role="banner">
+    {% include 'top-header-selector' %}
+    <div class="header__main rel ">
+        <div class="row rel header__main-wrapper">
+            <div class="column small-3 header__left">
+              <div class="hide--medium">
+                <a class="main-nav--mobile__toggle a--reset white" href="javascript:void(0);" data-target-toggle="#main-nav--mobile, body, .site-wrapper" data-target-toggle-id="1">
+                  <span class="icon icon--menu" aria-hidden="true"></span>
+                  <span class="invisible">Menu</span>
+                </a>
+              </div>
+              <div class="hide--small-down">
+                <a href="https://locations.chatters.ca/" class="salon-booking-link a--reset text--upper text--bold ib" target="_blank">Book Salon Appointment</a>
+              </div>
+            </div>
+      
+            <div class="column small-6 text--center header__center">
+            
+              <h1 class="logo__title">
+                
+                  <img class="logo" src="//cdn.shopify.com/s/files/1/1533/3199/files/chatters_logo_4c8d74e2-f528-465f-b981-84fd3dac0e65_500x@2x.png?v=1498343660" alt="chatters hair salon" itemprop="logo">
+                
+              </h1>
+            
+      
+            </div>
+      
+            <div class="column small-3 header__right">
+              <div class="text--right header__right--inner">
+                <ul class="ul--reset ul--inline">
+                  
+                    <li class="header__right__li first">
+                      <a href="javascript:void(0);" class="a--reset text--bold ib header__search-toggle" data-target-toggle=".search--header" title="Search" data-target-toggle-id="2">
+                          <span class="fa fa-search" style="font-size:1.5rem"></span>
+                      </a>
+                    </li>
+                  
+                    <li class="header__right__li hide--small-down rel">
+                      <a href="javascript:void(0);" class="a--reset text--bold" data-target-toggle=".header__account-links__wrapper" title="Account" data-target-toggle-id="3">
+                          <span class="fa fa-user" style="font-size:1.5rem"></span>
+                      </a>
+                    </li>
+                  
+      
+                  <li class="header__right__li swym-test rel ">
+                    <a href="#swym-wishlist" class="swym-wishlist a--reset" data-swym-loaded="true">
+                      <i aria-hidden="true" focusable="false" role="presentation" class="fa fa-heart" style="font-size:1.5rem"></i>
+                    </a>
+                  </li>
+      
+                  <li class="header__right__li last rel">
+                    <a class="minicart__toggle a--reset text--bold" href="/cart" data-target-toggle="#minicart" data-target-disable="mobile tablet" title="Bag" data-target-toggle-id="4">
+                      <span class="fa fa-shopping-cart" style="font-size:1.5rem; color:#56f6dc"></span>
+                      <span class="minicart__count ib text--center rel" style="display: none;">
+                        <span class="count">0</span>
+                      </span>
+                    </a>
+                  </li>
+                </ul>
+              </div>    
+            </div>
+          </div>
+
+        <nav class="main-nav text--center hide--small-down" role="navigation">
+            <div class="row">
+                <div class="column small-12">
+                    {% include 'site-nav' %}
+                </div>
+            </div>
+        </nav>
+        {%comment%}
         <div class="grid--full">
                 <div class="grid-item large--one-third">
                     {% if template == 'index' %}
@@ -84,8 +153,7 @@
                         {% else %}
                         </div>
                             {% endif %} 
-                </div>                           
-            
+                </div>      
             <div class="grid-item large--two-third text-center large--text-right">
                 
                 <div class="site-header--text-links{% if settings.header_message.empty? == false %} medium-down--hide{% endif %}">
@@ -126,12 +194,13 @@
                 </a>
             </div>
         </div>
+                             
+        {%endcomment%}    
     </div>
     </header>
     <nav class="nav-bar" role="navigation">
         <div class="wrapper">
             {% include 'search-bar' %}
-            {% include 'site-nav' %}
         </div>
     </nav>
     <div id="mobileNavBar">
@@ -145,7 +214,8 @@
             </a>
         </div>
     </div>
-    <main class="wrapper main-content" role="main">
+    
+    <main class="main" role="main">
         {{ content_for_layout }}
     </main>
     {% if settings.product_compare_enabled %}

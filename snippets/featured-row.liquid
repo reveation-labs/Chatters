@@ -1,22 +1,38 @@
 {% assign header_title = collections[featured_row].title %}
 {% assign more_link = collections[featured_row].url %}
 
-<div class="section-header">
-  {% if header_title %}
-    <p class="h1{% if more_link %} section-header--left{% endif %}">{{ header_title }}</p>
-  {% endif %}
-  {% if more_link %}
-    <div class="section-header--right">
-      {% assign header_title = header_title | downcase %}
-      <a href="{{ more_link }}">{{ 'homepage.featured_collection_rows.more_in_collection' | t: header_title }} &rsaquo;</a>
-    </div>
-  {% endif %}
-</div>
+<section class="section--border homepage__feature-products">
+    {% if header_title %}
+      <h3 class="feature-products__title">
+        <span class="feature-products__title_cta"> 
+          {{header_title}}
+        </span>
+      </h3>
+    {% endif %}
+    {%comment%}
+    {% if more_link %}
+      <div class="section-header--right">
+        {% assign header_title = header_title | downcase %}
+        <a href="{{ more_link }}">{{ 'homepage.featured_collection_rows.more_in_collection' | t: header_title }} &rsaquo;</a>
+      </div>
+    {% endif %}
+    {%endcomment%}
 
-<div class="grid-uniform row-negative-bottom">
-  {% for product in collections[featured_row].products limit: 5 %}
-    {% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half' %}
-    {% assign current_collection = collections[featured_row] %}
-    {% include 'product-grid-item' %}
-  {% endfor %}
-</div>
+  <div class="row row--thin clearfix">
+    {% for product in collections[featured_row].products limit: 4 %}
+      {% assign grid_item_width = 'large--one-fifth medium--one-third small--one-half' %}
+      {% assign current_collection = collections[featured_row] %}
+      {% include 'product-grid-item' %}
+    {% endfor %}
+  </div>
+
+  {% if collections[featured_row].products.size > 4 %}
+  <div class="row">
+    <div class="text--center">
+      <a class="a--reset button button--black feature-collection__link" href="/collections/home-page-whats-hot">
+         See more items
+      </a>
+    </div>
+  </div>
+  {% endif %}
+</section>

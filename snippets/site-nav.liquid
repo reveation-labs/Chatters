@@ -1,36 +1,38 @@
-<ul class="site-nav" id="accessibleNav">
+<ul class="main-nav__ul ul--inline site-nav" id="accessibleNav">
     {% unless linklists['main-menu'].links.first.url == '/' %}
         <li class="large--hide">
             <a href="{{ '/' | absolute_url }}">{{ 'general.breadcrumbs.home' | t }}</a>
         </li>
     {% endunless %}
     {% for link in linklists['main-menu'].links %}
-        {% assign child_list_handle = link.title | handleize %}       
+        {% assign child_list_handle = link.title %}       
         {% if linklists[child_list_handle].links.empty? == false %}
-            <li class="site-nav--has-dropdown{% if link.active %} site-nav--active{% endif %}" aria-haspopup="true">
-                <a href="{{ link.url }}">
+            <li class="site-nav--has-dropdown{% if link.active %} site-nav--active{% endif %} main-nav__li main-nav__li--top main-nav__li--noparent hover" aria-haspopup="true">
+                <a class="main-nav__link a--reset" href="{{ link.url }}">
                     {{ link.title }}
                     <span class="icon-fallback-text">
                         <span class="icon icon-arrow-down" aria-hidden="true"></span>
                     </span>
                 </a>
-                <ul class="site-nav--dropdown">
+                <ul class="site-nav--dropdown main-nav__sublinks main-nav__sublinks--wide ul--reset" style="background: black;">
                     {% for childlink in linklists[child_list_handle].links %}
-                        <li {% if childlink.active %}class="site-nav--active"{% endif %}><a href="{{ childlink.url  | absolute_url }}">{{ childlink.title | escape }}</a></li>
+                        <li class="main-nav__subli"{% if childlink.active %}class="site-nav--active main-nav__subli main-nav__subli--wide"{% endif %}><a class="main-nav__sublink a--reset white text--semi-bold" href="{{ childlink.url  | absolute_url }}">{{ childlink.title | escape }}</a></li>
                     {% endfor %}
                 </ul>
             </li>
         {% else %}
-            <li {% if link.active %}class="site-nav--active"{% endif %}>               
-                <a href="{{ link.url | absolute_url }}">{{ link.title }}</a>
+            <li {% if link.active %}class="site-nav--active"{% endif %} class="main-nav__li main-nav__li--top main-nav__li--noparent hover">               
+                <a class="main-nav__link a--reset" href="{{ link.url | absolute_url }}">{{ link.title }}</a>
             </li>
         {% endif %}
     {% endfor %}
+    {%comment%}
     {% if settings.bulk_order_enabled %}
         <li{% if link.active %} class="site-nav--active"{% endif %}>
             <a href="{{ '/bulkorder' | absolute_url }}">{{ 'bulk_order.general.title' | t }}</a>
         </li>
     {% endif %}
+    {%endcomment%}
     {% if shop.customer_accounts_enabled %}
         <li class="customer-navlink large--hide" ng-if="customer && customer.isRegisteredUser && customer.operatorUserName" ng-cloak>
             {{ 'layout.customer.logged_in_on_behalf_of_label' | t }} <a href="{{ 'account' | absolute_url }}" ng-bind="customer.firstName || customer.userName"></a>

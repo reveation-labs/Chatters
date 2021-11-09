@@ -1,17 +1,18 @@
 <vc-content-place id="BenefitsBanner"></vc-content-place>
-<vc-content-place id="HomePageSlider"></vc-content-place>
+
+{% include 'banner-sub-item'%}
 
 {% unless settings.home_content == blank or pages[settings.home_content].empty? or pages[settings.home_content].content == blank %}
   {% assign page = pages[settings.home_content] %}
-  <div class="rte">
+  {%comment%}<div class="rte">
     {{ page.content }}
-  </div>
-  <hr>
+  </div>{%endcomment%}
 {% endunless %}
 
 {% if settings.home_featured_collections_enable %}
+{%comment%}
   <div class="section-header">
-    <h2 class="h1 section-header--left">{{ 'homepage.featured_collections.heading' | t }}</h2>
+    <h2 class="h1 section-header--left">Trending Now</h2>
     <div class="section-header--right">
       <a href="{{ '/collections' | absolute_url }}">{{ 'homepage.featured_collections.more_categories' | t }} &rsaquo;</a>
     </div>
@@ -53,7 +54,6 @@
       {% when 6 %}
         {% assign featured_collection_width = 'small--one-half medium--one-third large--one-sixth' %}
     {% endcase %}
-
     {% if settings.home_featured_collections_sort == 'manual' %}
       {% if settings.collection_1 != blank %}
         {% assign featured = settings.collection_1 %}
@@ -91,7 +91,6 @@
         {% endunless %}
       {% endfor %}
     {% endif %}
-
     {% if index == 0 %}
       <div class="grid-item text-center">
         <p>{{ 'homepage.featured_collections.no_collections_html' | t }}</p>
@@ -139,11 +138,12 @@
     {% endif %}
   </div>
 
+{%endcomment%}  
 {% endif %}
 
 {% unless settings.home_featured_row1_enable == false or settings.home_featured_row1 == blank or collections[settings.home_featured_row1].empty? %}
   {% if settings.home_featured_collections_enable %}
-  <hr>
+
     {% endif %}
     {% assign featured_row = settings.home_featured_row1 %}
     {% assign row_limit_setting = settings.home_featured_row1_number %}
@@ -204,22 +204,21 @@
 {% endunless %}
 
 {% if settings.home_featured_row2_enable and settings.home_featured_row2 != blank %}
-  <hr>
   {% assign featured_row = settings.home_featured_row2 %}
   {% assign row_limit_setting = settings.home_featured_row2_number %}
   {% include 'featured-row' %}
+  {% include 'image-blocks' %}
 {% endif %}
 
 {% if settings.home_featured_row3_enable and settings.home_featured_row3 != blank %}
-  <hr>
   {% assign featured_row = settings.home_featured_row3 %}
   {% assign row_limit_setting = settings.home_featured_row3_number %}
   {% include 'featured-row' %}
 {% endif %}
 
 {% if settings.home_featured_row4_enable and settings.home_featured_row4 != blank %}
-  <hr>
   {% assign featured_row = settings.home_featured_row4 %}
   {% assign row_limit_setting = settings.home_featured_row4_number %}
   {% include 'featured-row' %}
 {% endif %}
+
