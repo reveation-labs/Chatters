@@ -7,153 +7,141 @@
 <footer class="site-footer small--text-center" role="contentinfo">
 
   <div class="wrapper">
-
-    <div class="grid">
-
-      {% if settings.footer_quicklinks_enable %}
-        <div class="grid-item medium--one-half large--three-twelfths">
-          <h3>{{ 'layout.footer.quick_links' | t }}</h3>
-          <ul>
-            {% if linklists[settings.footer_quicklinks_linklist].links.empty? %}
-            {% capture theme_settings_footer_linklist_path %}<strong>{{ 'layout.footer.footer' | t }}</strong> > <strong>{{ 'layout.footer.quick_links_list' | t }}</strong>{% endcapture %}
-            {{ 'layout.footer.instructions_for_linklist_html' | t: theme_settings_link, theme_settings_footer_linklist_path }}
-            {% else %}
-            {% for link in linklists[settings.footer_quicklinks_linklist].links %}
-              <li><a href="{{ link.url | absolute_url }}">{{ link.title }}</a></li>
-            {% endfor %}
-            {% endif %}
-          </ul>
+    <div  class="grid">
+      <div class="grid grid-item large--one-half left-box">
+        <div class="grid-item one-whole text-center">
+        
+            <img class="footer_logo_img"src="https://cdn.shopify.com/s/files/1/1533/3199/files/chatters_logo_08034e4d-11f9-4b40-8443-cff31028ff49_500x@2x.png?v=1498343680" alt="">
+           
         </div>
-      {% endif %}
+        
 
-      {% if settings.footer_content_enable %}
-      <div class="grid-item medium--one-half large--five-twelfths">
-        <h3>{{ 'layout.footer.get_in_touch' | t }}</h3>
-
-        {% if settings.footer_social_enable %}
-          <ul class="inline-list social-icons">
-            {% if settings.social_twitter_link != blank %}
+ 
+      <div class="grid">
+        <div class="grid-item large--one-whole">
+          <!-- <h3>{{ 'layout.footer.get_in_touch' | t }}</h3> -->
+          {% if settings.footer_social_enable %}
+            <ul class="inline-list social-icons flex">
+              {% if settings.social_twitter_link != blank %}
               <li>
-                <a class="icon-fallback-text" href="{{ settings.social_twitter_link }}" title="{{ 'layout.footer.store_on_social_network' | t: shop.name, 'Twitter' | escape }}">
-                  <span class="icon icon-twitter" aria-hidden="true"></span>
-                  <span class="fallback-text">Twitter</span>
-                </a>
-              </li>
-            {% endif %}
-            {% if settings.social_facebook_link != blank %}
+                <h5 class="footer-link-h5">IN-SALOON</h5>
+                 <div class="grid">
+                   <span class="grid-item one-whole footer-link-span">Salon Services</span>
+                   <span class="grid-item one-whole footer-link-span">Find our Hair Salons</span>
+                   <span class="grid-item one-whole footer-link-span">Book Appointment</span>
+                   <span class="grid-item one-whole footer-link-span" style="color: #41d1b9; font-weight: bold;">Careers</span>
+                 </div>
+            </li >
+              {% endif %}
+              {% if settings.social_facebook_link != blank %}
               <li>
-                <a class="icon-fallback-text" href="{{ settings.social_facebook_link }}" title="{{ 'layout.footer.store_on_social_network' | t: shop.name, 'Facebook' | escape }}">
-                  <span class="icon icon-facebook" aria-hidden="true"></span>
-                  <span class="fallback-text">Facebook</span>
-                </a>
-              </li>
-            {% endif %}
-            {% if settings.social_pinterest_link != blank %}
+                <h5 class="footer-link-h5">SHOOPING</h5>
+                <div class="grid">
+                  <span class="grid-item one-whole footer-link-span">Shipping & Returns</span>
+                  <span class="grid-item one-whole footer-link-span">Shop Now pay later</span>
+                  <span class="grid-item one-whole footer-link-span">Gift Cards</span>
+                  <span class="grid-item one-whole footer-link-span">My Accounts</span>
+                </div>
+          
+            </li>
+              {% endif %}
+              {% if settings.social_pinterest_link != blank %}
               <li>
-                <a class="icon-fallback-text" href="{{ settings.social_pinterest_link }}" title="{{ 'layout.footer.store_on_social_network' | t: shop.name, 'Pinterest' | escape }}">
-                  <span class="icon icon-pinterest" aria-hidden="true"></span>
-                  <span class="fallback-text">Pinterest</span>
-                </a>
-              </li>
-            {% endif %}
-            {% if settings.social_google_plus_link != blank %}
-              <li>
-                <a class="icon-fallback-text" href="{{ settings.social_google_plus_link }}" title="{{ 'layout.footer.store_on_social_network' | t:  shop.name,  'Google' | escape }}">
-                  <span class="icon icon-google" aria-hidden="true"></span>
-                  <span class="fallback-text">Google</span>
-                </a>
-              </li>
-            {% endif %}
-            {% if settings.social_instagram_link != blank %}
-              <li>
-                <a class="icon-fallback-text" href="{{ settings.social_instagram_link }}" title="{{ 'layout.footer.store_on_social_network' | t:  shop.name, 'Instagram' | escape }}">
-                  <span class="icon icon-instagram" aria-hidden="true"></span>
-                  <span class="fallback-text">Instagram</span>
-                </a>
-              </li>
-            {% endif %}
-            {% if settings.social_tumblr_link != blank %}
-              <li>
-                <a class="icon-fallback-text" href="{{ settings.social_tumblr_link }}" title="{{ 'layout.footer.store_on_social_network' | t:  shop.name,  'Tumblr' | escape }}">
-                  <span class="icon icon-tumblr" aria-hidden="true"></span>
-                  <span class="fallback-text">Tumblr</span>
-                </a>
-              </li>
-            {% endif %}
-            {% if settings.social_youtube_link != blank %}
-              <li>
-                <a class="icon-fallback-text" href="{{ settings.social_youtube_link }}" title="{{ 'layout.footer.store_on_social_network' | t:  shop.name,  'YouTube' | escape }}">
-                  <span class="icon icon-youtube" aria-hidden="true"></span>
-                  <span class="fallback-text">YouTube</span>
-                </a>
-              </li>
-            {% endif %}
-            {% if settings.social_vimeo_link != blank %}
-              <li>
-                <a class="icon-fallback-text" href="{{ settings.social_vimeo_link }}" title="{{ 'layout.footer.store_on_social_network' | t:  shop.name,  'Vimeo' | escape }}">
-                  <span class="icon icon-vimeo" aria-hidden="true"></span>
-                  <span class="fallback-text">Vimeo</span>
-                </a>
-              </li>
-            {% endif %}
-            {% if settings.social_fancy_link != blank %}
-              <li>
-                <a class="icon-fallback-text" href="{{ settings.social_fancy_link }}" title="{{ 'layout.footer.store_on_social_network' | t:  shop.name,  'Fancy' | escape }}">
-                  <span class="icon icon-fancy" aria-hidden="true"></span>
-                  <span class="fallback-text">Fancy</span>
-                </a>
-              </li>
-            {% endif %}
-          </ul>
-        {% endif %}
+                <h5 class="footer-link-h5" >ABOUT US</h5>
+                <div class="grid">
+                  <span class="grid-item one-whole footer-link-span">Our Story</span>
+                  <span class="grid-item one-whole footer-link-span">Blog</span>
+                  <span class="grid-item one-whole footer-link-span">Refer a Friend</span>
+                  <span class="grid-item one-whole footer-link-span">Become an Affiliate</span>
+                </div>
+          
+            </li>
+              {% endif %}
+              {% if settings.social_google_plus_link != blank %}
+                <li>
+                    <h5 class="footer-link-h5">SUPPORT</h5>
+                    <div class="grid">
+                      <span class="grid-item one-whole footer-link-span">Contact US</span>
+                      <span class="grid-item one-whole footer-link-span">FAQ</span>
+                      <span class="grid-item one-whole footer-link-span">Privacy Policy</span>
+                      <span class="grid-item one-whole footer-link-span">Contest Disclaimer</span>
+                    </div>
+              
+                </li>
+              {% endif %}
+            </ul>
+          {% endif %}
+        </div>
       </div>
-      {% endif %}
 
-      {% if settings.footer_newsletter_enable %}
+
+    </div>
+    
+
+    <div class="grid-item text-center large--one-half right-box ">
+      <h4 class="footer-signup-text" style="margin-top: 40px;">Sign up to receive our emails and get 15% off!</h4>
+      <button class="footer-button">
+        SIGN ME UP
+      </button>
+      <ul class="flex-icons">
+        <span class="icon icon-facebook"></span>
+        <span class="icon icon-twitter"></span>
+        <span class="icon icon-instagram"></span>
+        <span class="icon icon-pinterest"></span>
+        <span class="icon icon-tumblr"></span>
+        <span class="icon icon-youtube"></span>
+      </ul>
+      
+ 
+   </div>
+    
+     
+
+      <!-- {% if settings.footer_newsletter_enable %}
       <div class="grid-item large--one-third">
         <h3>{{ 'layout.footer.newsletter_title' | t }}</h3>
         {% include 'newsletter-form' %}
       </div>
-      {% endif %}
+      {% endif %} -->
+
     </div>
 
-    <hr class="hr--small">
+    <!-- <hr class="hr--small"> -->
 
-    <div class="grid">
-      <div class="grid-item{% unless shop.enabled_payment_types == empty %} large--two-fifths{% endunless %}">
-        {% if settings.footer_legallinks_enable %}
-          <ul class="legal-links inline-list">
-            {% for link in linklists[settings.footer_legallinks_linklist].links %}
-              <li><a href="{{ link.url | absolute_url }}">{{ link.title }}</a></li>
-            {% endfor %}
-          </ul>
-        {% endif %}
+
+  </div>
+  
+  <div class="footer-copyright">
+    <!-- <div class="grid-item{% unless shop.enabled_payment_types == empty %} large--two-fifths{% endunless %}"> -->
+      <!-- {% if settings.footer_legallinks_enable %}
         <ul class="legal-links inline-list">
-          <li>
-            &copy; {{ 'now' | date: "yyyy" }} {{ shop.name }}
-          </li>
-          <li>
-              {{ powered_by shop.name }}
-          </li>
+          {% for link in linklists[settings.footer_legallinks_linklist].links %}
+            <li><a href="{{ link.url | absolute_url }}">{{ link.title }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %} -->
+
+      <ul class="legal-links inline-list ">
+        <li>
+          &copy; {{ 'now' | date: "yyyy" }} {{ shop.name }} Limited Partnership. All Rights Reserved.
+        </li>
+      </ul>
+  
+
+    <!-- {% unless shop.enabled_payment_types == empty %}
+      <div class="grid-item large--three-fifths large--text-right">
+        <ul class="inline-list payment-icons">
+          {% for type in shop.enabled_payment_types %}
+            <li>
+              <span class="icon-fallback-text">
+                <span class="icon icon-{{ type }}" aria-hidden="true"></span>
+                <span class="fallback-text">{{ type | replace: '_',' ' }}</span>
+              </span>
+            </li>
+          {% endfor %}
         </ul>
       </div>
-
-      {% unless shop.enabled_payment_types == empty %}
-        <div class="grid-item large--three-fifths large--text-right">
-          <ul class="inline-list payment-icons">
-            {% for type in shop.enabled_payment_types %}
-              <li>
-                <span class="icon-fallback-text">
-                  <span class="icon icon-{{ type }}" aria-hidden="true"></span>
-                  <span class="fallback-text">{{ type | replace: '_',' ' }}</span>
-                </span>
-              </li>
-            {% endfor %}
-          </ul>
-        </div>
-      {% endunless %}
-
-    </div>
+    {% endunless %} -->
 
   </div>
 

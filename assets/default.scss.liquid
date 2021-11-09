@@ -122,7 +122,7 @@ $errorRedBg: lighten($errorRed, 55%);
 $successGreen: #0a942a;
 
 // Width variables
-$siteWidth: 1060px;
+$siteWidth: 1280px;
 $gutter: 30px;
 $gridGutter: 30px;
 $maxWidthBp: $siteWidth + $gutter*2;
@@ -2730,6 +2730,7 @@ $shareBorderColor: #ececec;
   background-color: black;
   padding: $gutter 0 10px;
   color: $colorFooterText;
+  position: relative;
 
   @include at-query ($min, $large) {
     padding: $gutter*2 0 $gutter/5;
@@ -16759,3 +16760,69 @@ dd {
     .cookie-banner .cookie-col + .cookie-col {
     margin: 0 0 0 60px;
 }
+
+
+.footer-copyright{
+  background: #282828;
+padding-top: 20px;
+padding-bottom: 20px;
+margin-bottom: -10px;
+text-align:center !important;
+color: white;
+}
+.footer_logo_img{
+  width: 250px;
+}
+.left-box{
+  border-right: 1px solid #818080;
+  padding-top: 30px;
+  margin-bottom: 32px;
+}
+.right-box{
+  color: white;
+  padding-top: 30px;
+
+}
+.flex{
+  display:flex;
+  margin-top: 40px;
+  gap: 3rem;
+}
+.footer-button{
+  border: none;
+background-color: #41d1b9;
+font-weight: 800;
+font-size: .9rem;
+color: white;
+padding: 10px;
+margin: 30px;
+}
+.footer-link-span{
+  font-size: 0.85em;
+}
+.footer-link-h5{
+  color: white;
+  position: relative;
+}
+.footer-link-h5::before{
+  content: "";
+background: #41d1b9;
+width: 2px;
+height: 9px;
+display: block;
+position: absolute;
+top: 6px;
+left: -10px;
+}
+.flex-icons{
+  display:flex;
+  justify-content: center;
+gap: 2rem;
+}
+.footer-signup-text{
+  width: 45%;
+   margin: auto;
+   font-size: 1.25rem;
+   font-weight: 700;
+}
+
