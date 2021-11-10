@@ -207,7 +207,7 @@
   {% assign featured_row = settings.home_featured_row2 %}
   {% assign row_limit_setting = settings.home_featured_row2_number %}
   {% include 'featured-row' %}
-  {% include 'image-blocks' %}
+  <vc-content-place id="ImageBanner"></vc-content-place>
 {% endif %}
 
 {% if settings.home_featured_row3_enable and settings.home_featured_row3 != blank %}
