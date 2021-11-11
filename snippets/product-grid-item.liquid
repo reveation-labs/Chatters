@@ -58,7 +58,7 @@
                             <a href="/products/hempz-limited-edition-peppermint-vanilla-swirl-herbal-body-moisturizer" class="button button--black">
                               View Product
                             </a>                      
-                            <button name="add" class="add-to-cart button add-to-cart--40815789637809" data-variant-id="40815789637809" data-variant-inventory="949" data-add-to-cart="">
+                            <button name="add" class="add-to-cart button add-to-cart--40815789637809" data-variant-id="40815789637809" data-variant-inventory="949" data-add-to-cart="" ng-click="addProductToCartById('{{ product.id }}', 1, $event)" ng-controller="productController" interactor-arg="{{ product.id }}">
                                 <span class="text">Add to Bag</span>
                             </button>
                         </div>

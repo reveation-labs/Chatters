@@ -5,7 +5,7 @@
         </li>
     {% endunless %}
     {% for link in linklists['main-menu'].links %}
-        {% assign child_list_handle = link.title %}       
+        {% assign child_list_handle = link.title  | handleize %}       
         {% if linklists[child_list_handle].links.empty? == false %}
             <li class="site-nav--has-dropdown{% if link.active %} site-nav--active{% endif %} main-nav__li main-nav__li--top main-nav__li--noparent hover" aria-haspopup="true">
                 <a class="main-nav__link a--reset" href="{{ link.url }}">
