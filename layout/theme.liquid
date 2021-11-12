@@ -116,7 +116,7 @@
                   <li class="header__right__li last rel">
                     <a class="minicart__toggle a--reset text--bold" href="/cart" data-target-toggle="#minicart" data-target-disable="mobile tablet" title="Bag" data-target-toggle-id="4">
                       <span class="fa fa-shopping-cart" style="font-size:1.5rem; color:#56f6dc"></span>
-                      <span class="minicart__count ib text--center rel">
+                      <span class="minicart__count ib text--center rel" style="display: none;">
                         <span id="cartCount" class="count" aria-label={% raw %}{{cartItemsCount}}{% endraw %} role="title" ng-class="{ 'visible-count': cartItemsCount > 0 }" title='{% raw %}{{cartItemsCount}} items{% endraw %}' ng-bind="cartItemsCount"
                             ng-cloak></span>
                       </span>

@@ -113,7 +113,7 @@
                               Remove:
                             </span>
                         </div>
-                        <p class="text--semi-bold">
+                        <p class="text--semi-bold" style="margin:0">
                           <a class="cart__item__remove__link text--upper a--reset" ng-click="removeLineItem(lineItem.id)" title="Remove">
                             <span class="fa fa-times-circle"></span>
                           </a>
@@ -147,6 +147,14 @@
                           <input type="submit" ng-class="{ 'btn': !cartIsUpdating, 'btn-secondary': cartIsUpdating || errorOccured || !cart.isValid }" ng-disabled="cartIsUpdating || cart.hasValidationErrors" ng-click="submitCart()" class="button button--medium button--full checkout bold_hidden" id="checkout" name="checkout" value="Proceed to Checkout" data-event-queue-button="0" style="display: none;"><input type="submit" style="background: #41d1b9" class="button button--medium button--full checkout bold_clone" id="checkout" name="checkout" value="Proceed to Checkout" data-event-queue-button="0">
                         </div>
                     </div>
+            </div>
+            <div class="row">
+              <div class="cart__continue-shopping">
+                <a href="{{ '/' | absolute_url }}" class="a--reset cart__continue-shopping__link">
+                  <span class="fas fa-less-than"></span>
+                  <span class="cart__continue-shopping__text ib">Continue Shopping</span>
+                </a>
+              </div>
             </div>
         </form>
     </div>   

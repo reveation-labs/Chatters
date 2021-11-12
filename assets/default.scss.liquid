@@ -2566,6 +2566,7 @@ $shareBorderColor: #ececec;
 /*================ Large screen dropdown styles ================*/
 @include at-query ($min, $large) {
   .site-nav--dropdown {
+    column-count: 2;
     display: block;
     position: absolute;
     top: 100%;
@@ -7811,7 +7812,7 @@ body.main-nav-hover {
 
 .main-nav__li .main-nav__link {
   font-size: 16px;
-  font-size: 1rem;
+  font-size: 14px;
   color: #000;
   font-family: gilroy,sans-serif;
   font-weight: 500;
